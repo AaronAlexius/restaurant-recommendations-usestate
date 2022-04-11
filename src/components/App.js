@@ -5,7 +5,7 @@ import ReviewList from "./ReviewList"
 
 const App = props => {
   const [reviews, setReviews] = useState(reviewData)
-// debugger
+// Testing part 2 on git!
   return (
     <div className="grid-container">
       <div className="grid-x">
