@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import Restaurant from "./Restaurant"
 import reviewData from "../constants/reviews"
 import ReviewList from "./ReviewList"
+import ReviewForm from "./ReviewForm"
 
 const App = props => {
   const [reviews, setReviews] = useState(reviewData)
-// Testing part 2 on git!
   return (
     <div className="grid-container">
       <div className="grid-x">
@@ -17,7 +17,7 @@ const App = props => {
         <div className="reviews cell auto grid-x">
           <div className="cell">
             <h3>Review Form</h3>
-
+            <ReviewForm />
           // future review form component here
 
           </div>
