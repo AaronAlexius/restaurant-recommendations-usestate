@@ -1,12 +1,11 @@
 import React, { useState } from "react"
-
 import Restaurant from "./Restaurant"
-
 import reviewData from "../constants/reviews"
+import ReviewList from "./ReviewList"
 
 const App = props => {
   const [reviews, setReviews] = useState(reviewData)
-
+// debugger
   return (
     <div className="grid-container">
       <div className="grid-x">
@@ -25,7 +24,7 @@ const App = props => {
 
           <div className="cell">
             <h3>Reviews</h3>
-
+            <ReviewList reviews={reviews} setReviews={setReviews}/>
             // future review list component here
           </div>
         </div>
