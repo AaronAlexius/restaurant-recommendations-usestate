@@ -5,7 +5,36 @@ import ReviewList from "./ReviewList"
 import ReviewForm from "./ReviewForm"
 
 const App = props => {
+  const defaultState = {
+    name: "",
+    rating: "",
+    content: ""
+  }
+
   const [reviews, setReviews] = useState(reviewData)
+  const [currentReview, setCurrentReview] = useState(defaultState)
+
+
+  const handleInputChange = event => {
+    setCurrentReview({
+      ...currentReview,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  } 
+
+  const handleOnSubmit = event => {
+    event.preventDefault(),
+    setReviews([
+      ...reviews, 
+      currentReview
+    ])
+    clearForm()
+  }
+
+  const clearForm = event => {
+    setCurrentReview(defaultState)
+  }
+
   return (
     <div className="grid-container">
       <div className="grid-x">
@@ -17,7 +46,12 @@ const App = props => {
         <div className="reviews cell auto grid-x">
           <div className="cell">
             <h3>Review Form</h3>
-            <ReviewForm />
+            <ReviewForm 
+              currentReview={currentReview} 
+              setCurrentReview={setCurrentReview} 
+              handleInputChange={handleInputChange}
+              handleOnSubmit={handleOnSubmit}
+            />
           // future review form component here
 
           </div>

@@ -1,24 +1,14 @@
 import React, { useState } from "react"
 
 const ReviewForm = props => {
-  const [currentReview, setCurrentReview] = useState({
-    name: "",
-    rating: "",
-    content: ""
-  })
-
-  const handleInputChange = event => {
-    setCurrentReview({
-      ...currentReview,
-      [event.currentTarget.name]: event.currentTarget.value
-    })
-  } 
+  const { currentReview, setCurrentReview } = props
+  const { handleInputChange, handleOnSubmit } = props
 
   console.log("name:" [currentReview.name])
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleOnSubmit}>
         <label htmlFor="name">
           Name:
           <input 
@@ -52,6 +42,7 @@ const ReviewForm = props => {
             onChange={handleInputChange}         
           />
         </label>
+        <input type="submit" className="button" value="Submit" />
       </form>
     </div>
   )
